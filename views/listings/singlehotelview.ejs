@@ -1,0 +1,98 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+  <div class="hotel-container">
+    <!-- left side -->
+    <div class="hotel-image-section">
+      <img class="hotel-image" src="<%= hotel.image.url %>" alt="<%= hotel.title %>" />
+    </div>
+
+    <!-- right side -->
+    <div class="hotel-content">
+      <h1 class="hotel-title">
+        <%= hotel.title %>
+      </h1>
+
+      <h4 class="hotel-description">
+        <%= hotel.description %>
+      </h4>
+
+      <p class="hotel-price">₹ <%= hotel.price %>
+      </p>
+
+      <p class="hotel-location">📍 <%= hotel.location %>
+      </p>
+
+      <p class="hotel-country">🌍 <%= hotel.country %>
+      </p>
+
+      <div class="anchorseditdelete mt-4">
+        <a href="/view/<%= hotel._id %>/edit">Edit</a>
+        <form method="post" action="/view/<%= hotel._id %>/delete?_method=DELETE">
+          <button>Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr />
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg border-0 rounded-4">
+          <div class="card-body p-4">
+            <h3 class="text-center mb-4">Leave a Review</h3>
+
+            <form action="/listings/<%= hotel._id %>/reviews" method="post">
+              <!-- Rating -->
+              <div class="mb-4">
+                <label for="rating" class="form-label fw-bold"> Rating </label>
+                <input type="range" class="form-range" min="1" max="5" step="1" id="rating" name="review[rating]" required />
+                <div class="d-flex justify-content-between">
+                  <small>1 ⭐</small>
+                  <small>5 ⭐</small>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="mb-4">
+                <label for="comment" class="form-label fw-bold">
+                  Description
+                </label>
+                <textarea id="comment" class="form-control" rows="4" placeholder="Share your experience..."
+                  name="review[comment]" required></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="text-center">
+                <button class="btn btn-dark px-4 rounded-pill">
+                  Submit Review
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+
+    <% for(review of hotel.reviews){ %>
+      <div class="card col-5 ms-3 mb-3">
+        <div class="card-body">
+          <h1 class="card-text">
+            <%= review.rating %>
+          </h1>
+          <p class="card-text">
+            <%= review.comment %>
+          </p>
+
+          <form class="mb-3" method="post" action="/listings/<%= hotel._id %>/reviews/<%= review._id %>?_method=DELETE">
+            <button>delete</button>
+          </form>
+
+        </div>
+      </div>
+      <% } %>
+  </div>

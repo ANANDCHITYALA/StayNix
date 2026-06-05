@@ -1,0 +1,21 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+<div class="hotels__view_container">
+    <% for(singleListing of allListings){ %>
+      <a href="/view/<%=singleListing._id %>" class="card-link">
+        <div class="single__hotel_card">
+          <img src="<%=singleListing.image.url %>" alt="<%= singleListing.title %>">
+          <div class="card-body">
+            <h3>
+              <b><%= singleListing.title %></b>
+            </h3>
+            <p>₹ <%= singleListing.price %> for 2 nights
+            </p>
+          </div>
+        </div>
+      </a>
+      <% } %>
+</div>
+
+
+
