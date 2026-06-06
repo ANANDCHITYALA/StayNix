@@ -105,6 +105,21 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.get("/signup", (req, res) => {
+  res.render("authentication/signup.ejs");
+});
+
+app.post(
+  "/signup",
+  wrapAsync(async (req, res) => {
+    const { username, Email, password } = req.body;
+    const newUser = User({ username, Email });
+    await User.register(newUser, password);
+    req.flash("success", "user succesfully registred");
+    res.rendirect("/");
+  }),
+);
+
 app.get("/login", (req, res) => {
   res.render("authentication/login.ejs");
 });
