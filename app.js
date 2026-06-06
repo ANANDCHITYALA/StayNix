@@ -2,6 +2,11 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+const User = require("./model/usermodel");
+
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+
 //db connection establishing
 const mongoose = require("mongoose");
 require("dotenv").config();
@@ -91,6 +96,17 @@ app.use(flash());
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   next();
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
+// console.log(User);
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.get("/login", (req, res) => {
+  res.render("authentication/login.ejs");
 });
 
 //initial route
