@@ -113,10 +113,11 @@ app.post(
   "/signup",
   wrapAsync(async (req, res) => {
     const { username, Email, password } = req.body;
-    const newUser = User({ username, Email });
+    // console.log(username);
+    const newUser = new User({ username, Email });
     await User.register(newUser, password);
     req.flash("success", "user succesfully registred");
-    res.rendirect("/");
+    res.redirect("/");
   }),
 );
 
