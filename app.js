@@ -1,3 +1,6 @@
+//getting error that if user is alredy present and another user tries to register with same name it showing error msg as
+//  error occured you have to place msg as already usernae exist try with another username
+
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -76,6 +79,16 @@ const validateReview = (req, res, next) => {
   next();
 };
 
+//to check whether the user is registered or not to manipulate the data
+
+const isLoggedIn = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    req.flash("error", "you are not logged in ");
+    return res.redirect("/login");
+  }
+  next();
+};
+
 // express-session
 const flash = require("connect-flash");
 const session = require("express-session");
@@ -93,11 +106,6 @@ const sessionOptions = {
 app.use(session(sessionOptions));
 app.use(flash());
 
-app.use((req, res, next) => {
-  res.locals.success = req.flash("success");
-  next();
-});
-
 app.use(passport.initialize());
 app.use(passport.session());
 // console.log(User);
@@ -105,24 +113,64 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// middleware you should write here only because req.user is related to passport and anfter passport initialization
+//  it activates beforew initialization it is undefined (no store of any date)
+
+//only res.locals middleware applicable
+
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.request = req; // this for a boiler plate to display signup and login and logout
+  res.locals.failure = req.flash("error");
+  res.locals.currUser = req.user;
+
+  next();
+});
+
 app.get("/signup", (req, res) => {
   res.render("authentication/signup.ejs");
 });
 
 app.post(
   "/signup",
-  wrapAsync(async (req, res) => {
+  wrapAsync(async (req, res, next) => {
     const { username, Email, password } = req.body;
     // console.log(username);
     const newUser = new User({ username, Email });
-    await User.register(newUser, password);
-    req.flash("success", "user succesfully registred");
-    res.redirect("/");
+    const registeredUser = await User.register(newUser, password);
+
+    req.login(registeredUser, (err) => {
+      if (err) {
+        console.log(err);
+        return next(err);
+      }
+      req.flash("success", "user succesfully registred");
+      res.redirect("/");
+    });
   }),
+);
+app.post(
+  "/login",
+  passport.authenticate("local", {
+    failureRedirect: "/login",
+    failureFlash: true,
+  }),
+  (req, res) => {
+    res.redirect("/");
+  },
 );
 
 app.get("/login", (req, res) => {
   res.render("authentication/login.ejs");
+});
+app.get("/logout", (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      next(err);
+    }
+    req.flash("success", "logeed out");
+    res.redirect("/");
+  });
 });
 
 //initial route
@@ -147,13 +195,15 @@ app.get(
   }),
 );
 
-app.get("/new", (req, res) => {
+app.get("/new", isLoggedIn, (req, res) => {
   res.render("listings/new.ejs");
 });
 
 app.post(
   "/listings/new",
+  isLoggedIn,
   validateSchema,
+
   wrapAsync(async (req, res) => {
     const listings = req.body.listings;
     console.log(listings);
@@ -175,6 +225,7 @@ app.post(
 
 app.get(
   "/view/:id/edit",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     const { id } = req.params;
     const hotel = await HotelModel.findById(id);
@@ -206,6 +257,7 @@ app.put(
 
 app.delete(
   "/view/:id/delete",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     const { id } = req.params;
     const hotel = await HotelModel.findByIdAndDelete(id);
