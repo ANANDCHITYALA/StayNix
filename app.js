@@ -185,9 +185,10 @@ app.get(
 //viewing page
 app.get(
   "/view/:id",
-  wrapAsync(async (req, res, next) => {
+  wrapAsync(async (req, res) => {
     const { id } = req.params;
     const hotel = await HotelModel.findById(id).populate("reviews");
+
     if (!hotel) {
       throw new ExpressError(404, "hotel not found");
     }
@@ -249,6 +250,12 @@ app.put(
       delete listings.image.filename;
     }
 
+    // let listing = await HotelModel.findById(id);
+    // if (!listing.author.equals(res.locals.currUser._id)) {
+    //   req.flash("error", "you are not the owner for this post");
+    //   return res.redirect(`/view/${id}`);
+    // }
+
     await HotelModel.findByIdAndUpdate(id, listings);
     req.flash("success", "updated successfully");
     res.redirect(`/view/${id}`);
@@ -276,6 +283,7 @@ app.post(
     const { id } = req.params;
     const listing = await HotelModel.findById(id);
     const newreview = new reviewModel(req.body.review);
+    // newreview.author = req.user._id;
     await newreview.save();
 
     await listing.reviews.push(newreview);

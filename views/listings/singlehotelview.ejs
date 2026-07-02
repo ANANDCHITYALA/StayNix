@@ -24,13 +24,14 @@
 
       <p class="hotel-country">🌍 <%= hotel.country %>
       </p>
-
+       
       <div class="anchorseditdelete mt-4">
         <a href="/view/<%= hotel._id %>/edit">Edit</a>
         <form method="post" action="/view/<%= hotel._id %>/delete?_method=DELETE">
           <button>Delete</button>
         </form>
       </div>
+    
     </div>
   </div>
   <hr />

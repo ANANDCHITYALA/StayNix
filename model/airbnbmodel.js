@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const reviewModel = require("./reviewModel");
+const { ref } = require("joi");
 
 const hotelSchema = new mongoose.Schema({
   title: {
@@ -39,6 +40,10 @@ const hotelSchema = new mongoose.Schema({
       ref: "reviewModel",
     },
   ],
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "usermodel",
+  },
 });
 
 const HotelModel = mongoose.model("HotelModel", hotelSchema);

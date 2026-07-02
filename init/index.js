@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
-// const path = require("path");
+const path = require("path");
 const HotelModel = require("../model/airbnbmodel");
 const sampleListings = require("./data");
 
 //db connection
-require("dotenv").config();
+require("dotenv").config({
+  path: path.join(__dirname, "../.env"),
+});
 
 async function dbconnection() {
   try {
