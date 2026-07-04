@@ -1,4 +1,4 @@
-<footer class="fixed-bottom">
+<!-- <footer class="fixed-bottom">
   <div class="form__social_icons">
     <i class="fa-brands fa-facebook" style="color: rgb(116, 192, 252)"></i>
     <i class="fa-brands fa-instagram" style="color: rgb(116, 192, 252)"></i>
@@ -9,4 +9,137 @@
     <a href="">terms</a>
     <a href="">insurances</a>
   </div>
+</footer> -->
+
+<footer class="footer mt-5">
+
+    <div class="container">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4">
+
+                <h4 class="fw-bold text-danger">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    StayNix
+
+                </h4>
+
+                <p>
+
+                    Discover beautiful stays across the world.
+
+                    Built with ❤️ using Node.js,
+
+                    Express, MongoDB and Bootstrap.
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <h5>
+
+                    Quick Links
+
+                </h5>
+
+                <ul class="footer-links">
+
+                    <li>
+
+                        <a href="/">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/new">
+
+                            Add Listing
+
+                        </a>
+
+                    </li>
+
+                    <% if(!currUser){ %>
+
+                        <li>
+
+                            <a href="/login">
+
+                                Login
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="/signup">
+
+                                Signup
+
+                            </a>
+
+                        </li>
+
+                        <% } %>
+
+                </ul>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <h5>
+
+                    Connect
+
+                </h5>
+
+                <div class="social-icons">
+
+                    <a href="https://github.com/ANANDCHITYALA">
+
+                        <i class="fab fa-github"></i>
+
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/anandchityala/">
+
+                        <i class="fab fa-linkedin"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fab fa-instagram"><b>_</b>
+                        </i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center text-muted mb-0">
+
+            © 2026 StayNix. All rights reserved.
+
+        </p>
+
+    </div>
+
 </footer>

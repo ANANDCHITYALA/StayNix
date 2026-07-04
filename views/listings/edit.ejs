@@ -1,81 +1,101 @@
-<% layout("/layouts/boilerplate.ejs") %>
+<% layout("layouts/boilerplate.ejs") %>
 
-<div class="row">
-  <div class="col-md-5 offset-2">
-    <form
-      method="post"
-      action="/listings/<%= hotel._id %>?_method=PUT"
-      class="needs-validation"
-      enctype="multipart/form-data"
-      novalidate
-    >
-      <div>
-        <label for="title" class="form-label">Title:</label>
-        <input
-          type="text"
-          name="listings[title]"
-          class="form-control"
-          value="<%= hotel.title %>"
-          required
-        />
-        <div class="invalid-feedback">Please enter a Title.</div>
-      </div>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="form-card">
+        <div class="text-center mb-5">
+          <i class="fa-solid fa-house-circle-check form-icon"></i>
 
-      <div>
-        <label for="description" class="form-label"> Description:</label>
-        <textarea name="listings[description]" class="form-control" required>
-<%= hotel.description %></textarea
+          <h2 class="fw-bold mt-3">EditListing</h2>
+
+          <p class="text-muted">
+            Share your property with travelers around the world.
+          </p>
+        </div>
+
+        <form
+          action="/listings/<%= hotel._id %>?_method=PUT"
+          method="POST"
+          enctype="multipart/form-data"
+          class="needs-validation"
+          novalidate
         >
-        <div class="invalid-feedback">Please add description.</div>
-      </div>
+          <div class="mb-4">
+            <label class="form-label"> Property Title </label>
 
-      <div class="mb-3">
-        <label class="form-label"> Replace Image </label>
+            <input
+              type="text"
+              class="form-control"
+              name="listings[title]"
+              value="<%= hotel.title %>"
+              required
+            />
+          </div>
 
-        <input type="file" name="image" class="form-control" />
-      </div>
+          <div class="mb-4">
+            <label class="form-label"> Description </label>
 
-      <div>
-        <label for="price" class="form-label">price</label>
-        <input
-          type="number"
-          name="listings[price]"
-          value="<%= hotel.price %>"
-          class="form-control"
-          required
-        />
-        <div class="invalid-feedback">price is mandatory to enter</div>
-      </div>
+            <textarea
+              rows="5"
+              class="form-control"
+              name="listings[description]"
+              required
+            >
+<%= hotel.description %></textarea
+            >
+          </div>
 
-      <div>
-        <label for="location" class="form-label">location</label>
-        <input
-          type="text"
-          name="listings[location]"
-          class="form-control"
-          value="<%= hotel.location %>"
-          required
-        />
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <label class="form-label"> Price (₹) </label>
 
-        <div class="invalid-feedback">Please choose a location.</div>
-      </div>
+              <input
+                type="number"
+                min="1"
+                class="form-control"
+                name="listings[price]"
+                value="<%= hotel.price %>"
+                required
+              />
+            </div>
 
-      <div>
-        <label for="country" class="form-label">country</label>
-        <input
-          type="text"
-          name="listings[country]"
-          value="<%= hotel.country %>"
-          class="form-control"
-          required
-        />
-        <div class="invalid-feedback">Please choose a country.</div>
+            <div class="col-md-6 mb-4">
+              <label class="form-label"> Upload Image </label>
+
+              <input type="file" class="form-control" name="image" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <label class="form-label"> Location </label>
+
+              <input
+                type="text"
+                class="form-control"
+                name="listings[location]"
+                value="<%= hotel.location %>"
+                required
+              />
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <label class="form-label"> Country </label>
+
+              <input
+                type="text"
+                class="form-control"
+                name="listings[country]"
+                value="<%= hotel.country %>"
+                required
+              />
+            </div>
+          </div>
+
+          <button class="btn btn-danger btn-lg w-100">Update Listing</button>
+        </form>
       </div>
-      <br />
-      <br />
-      <div>
-        <button class="btn btn-primary" type="submit">Submit form</button>
-      </div>
-    </form>
+    </div>
   </div>
 </div>

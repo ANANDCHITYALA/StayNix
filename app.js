@@ -8,9 +8,7 @@ const ejsMate = require("ejs-mate");
 // require("dotenv").config();
 const dotenv = require("dotenv");
 
-dotenv.config({
-  path: "../.env",
-});
+dotenv.config();
 
 console.log(process.env.Mongo_URL);
 console.log(process.env.Mongo_URL);

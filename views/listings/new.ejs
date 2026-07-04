@@ -1,86 +1,95 @@
-<% layout("/layouts/boilerplate") %>
-<div class="row">
-  <div class="col-md-8 offset-2">
-    <h3>Create new listing</h3>
-    <form
-      method="post"
-      action="/listings/new"
-      class="needs-validation"
-      enctype="multipart/form-data"
-      novalidate
-    >
-      <div>
-        <label for="title" class="form-label">Title:</label>
-        <input
-          type="text"
-          name="listings[title]"
-          class="form-control"
-          required
-        />
-        <div class="valid-feedback">Looks good!</div>
-        <div class="invalid-feedback">Please enter a Title.</div>
-      </div>
+<% layout("layouts/boilerplate.ejs") %>
 
-      <div>
-        <label for="description" class="form-label"> Description:</label>
-        <textarea
-          name="listings[description]"
-          id=""
-          class="form-control"
-          required
-        ></textarea>
-        <div class="valid-feedback">Looks good!</div>
-        <div class="invalid-feedback">Please add description.</div>
-      </div>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="form-card">
+        <div class="text-center mb-5">
+          <i class="fa-solid fa-house-circle-check form-icon"></i>
 
-      <div class="mb-3">
-        <label class="form-label"> Upload Image </label>
+          <h2 class="fw-bold mt-3">Create New Listing</h2>
 
-        <input type="file" name="image" class="form-control" required />
-      </div>
+          <p class="text-muted">
+            Share your property with travelers around the world.
+          </p>
+        </div>
 
-      <div>
-        <label for="price" class="form-label">price</label>
-        <input
-          type="number"
-          min="1"
-          name="listings[price]"
-          id=""
-          class="form-control"
-          required
-        />
-        <div class="valid-feedback">Looks good!</div>
-        <div class="invalid-feedback">price is mandatory to enter</div>
-      </div>
+        <form
+          action="/listings/new"
+          method="POST"
+          enctype="multipart/form-data"
+          class="needs-validation"
+          novalidate
+        >
+          <div class="mb-4">
+            <label class="form-label"> Property Title </label>
 
-      <div>
-        <label for="location" class="form-label">location</label>
-        <input
-          type="text"
-          name="listings[location]"
-          class="form-control"
-          required
-        />
-        <div class="valid-feedback">Looks good!</div>
-        <div class="invalid-feedback">Please choose a location.</div>
-      </div>
+            <input
+              type="text"
+              class="form-control"
+              name="listings[title]"
+              required
+            />
+          </div>
 
-      <div>
-        <label for="country" class="form-label">country</label>
-        <input
-          type="text"
-          name="listings[country]"
-          id=""
-          class="form-control"
-          required
-        />
-        <div class="valid-feedback">Looks good!</div>
-        <div class="invalid-feedback">Please choose a country.</div>
+          <div class="mb-4">
+            <label class="form-label"> Description </label>
+
+            <textarea
+              rows="5"
+              class="form-control"
+              name="listings[description]"
+              required
+            ></textarea>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <label class="form-label"> Price (₹) </label>
+
+              <input
+                type="number"
+                min="1"
+                class="form-control"
+                name="listings[price]"
+                required
+              />
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <label class="form-label"> Upload Image </label>
+
+              <input type="file" class="form-control" name="image" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <label class="form-label"> Location </label>
+
+              <input
+                type="text"
+                class="form-control"
+                name="listings[location]"
+                required
+              />
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <label class="form-label"> Country </label>
+
+              <input
+                type="text"
+                class="form-control"
+                name="listings[country]"
+                required
+              />
+            </div>
+          </div>
+
+          <button class="btn btn-danger btn-lg w-100">Publish Listing</button>
+        </form>
       </div>
-      <br />
-      <div>
-        <button class="btn btn-primary" type="submit">Submit form</button>
-      </div>
-    </form>
+    </div>
   </div>
 </div>

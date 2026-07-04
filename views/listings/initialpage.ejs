@@ -1,21 +1,226 @@
 <% layout("layouts/boilerplate.ejs") %>
 
-<div class="hotels__view_container">
-    <% for(singleListing of allListings){ %>
-      <a href="/view/<%=singleListing._id %>" class="card-link">
-        <div class="single__hotel_card">
-          <img src="<%=singleListing.image.url %>" alt="<%= singleListing.title %>">
-          <div class="card-body">
-            <h3>
-              <b><%= singleListing.title %></b>
-            </h3>
-            <p>₹ <%= singleListing.price %> for 2 nights
-            </p>
-          </div>
+<div class="container mt-4">
+
+<div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
+
+    <!-- Indicators -->
+
+    <div class="carousel-indicators">
+
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
+
+    </div>
+
+    <div class="carousel-inner rounded-4">
+
+        <!-- Slide 2 -->
+
+        <div class="carousel-item">
+
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600" class="d-block w-100 hero-image">
+
+            <div class="carousel-caption hero-content">
+
+                <h1>Luxury Villas</h1>
+
+                <p>Experience premium stays around the world.</p>
+
+                <a href="#listings" class="btn btn-danger btn-lg rounded-pill px-4">
+
+                    Explore Villas
+
+                </a>
+
+            </div>
+
         </div>
-      </a>
-      <% } %>
+
+        <!-- Slide 3 -->
+
+        <div class="carousel-item">
+
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600" class="d-block w-100 hero-image">
+
+            <div class="carousel-caption hero-content">
+
+                <h1>Peaceful Cabins</h1>
+
+                <p>Escape the city and relax in nature.</p>
+
+                <a href="#listings" class="btn btn-danger btn-lg rounded-pill px-4">
+
+                    Discover Cabins
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Slide 4 -->
+
+        <div class="carousel-item">
+
+            <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=1600" class="d-block w-100 hero-image">
+
+            <div class="carousel-caption hero-content">
+
+                <h1>Beach Paradise</h1>
+
+                <p>Wake up with breathtaking ocean views.</p>
+
+                <a href="#listings" class="btn btn-danger btn-lg rounded-pill px-4">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Slide 1 -->
+
+        <div class="carousel-item active">
+
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600" class="d-block w-100 hero-image">
+
+            <div class="carousel-caption hero-content">
+
+                <h1 style="font-size: 3.4rem;">Find your next stay</h1>
+
+                <p>Discover amazing places at affordable prices.</p>
+
+                <a href="#listings" class="btn btn-danger btn-lg rounded-pill px-4">
+
+                    Explore Now
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Previous -->
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+
+        <span class="carousel-control-prev-icon"></span>
+
+    </button>
+
+    <!-- Next -->
+
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+
+        <span class="carousel-control-next-icon"></span>
+
+    </button>
+
 </div>
 
+</div>
 
+<!-- Listings -->
 
+<div class="container my-5" id="listings">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+
+            Popular Stays
+
+        </h2>
+
+        <span class="text-muted">
+
+            <%= allListings.length %> Listings
+
+        </span>
+
+    </div>
+
+    <div class="row g-4">
+
+        <% allListings.forEach((singleListing)=>{ %>
+
+            <div class="col-lg-4 col-md-6">
+
+                <a
+                    href="/view/<%= singleListing._id %>"
+                    class="text-decoration-none"
+                >
+
+                    <div class="listing-card">
+
+                        <div class="listing-image">
+
+                            <img
+                                src="<%= singleListing.image.url %>"
+                                alt="<%= singleListing.title %>"
+                            >
+
+                        </div>
+
+                        <div class="listing-content">
+
+                            <div class="d-flex justify-content-between">
+
+                                <h5>
+
+                                    <%= singleListing.title %>
+
+                                </h5>
+
+                                <span class="badge bg-light text-dark">
+
+                                    ₹<%= singleListing.price %>
+
+                                </span>
+
+                            </div>
+
+                            <p class="text-muted mb-2">
+
+                                <i class="fa-solid fa-location-dot text-danger"></i>
+
+                                <%= singleListing.location %>,
+                                <%= singleListing.country %>
+
+                            </p>
+
+                            <p class="text-dark fw-semibold">
+
+                                ₹ <%= singleListing.price %>
+
+                                <span class="text-muted fw-normal">
+
+                                    / night
+
+                                </span>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</div>

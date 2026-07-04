@@ -1,43 +1,129 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><i class="fa-brands fa-airbnb" style="color: rgb(116, 192, 252)"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top py-3">
+  <div class="container">
+
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold fs-3 text-danger" href="/">
+      <i class="fa-solid fa-house me-2"></i>StayNix
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">All Listings</a>
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/new">Add New listing</a>
-        </li>
-      </ul>
-      <form class="d-flex mx-auto px-4 flex-grow-1" role="search" method="get" action="/search"
-        style="max-width: 700px">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchText" />
-        <button class="btn btn-outline-success" type="submit">Search</button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <!-- Search -->
+      <form
+        class="d-flex mx-auto my-3 my-lg-0"
+        method="GET"
+        action="/search"
+      >
+        <div class="input-group search-box">
+
+          <input
+            class="form-control border-0"
+            type="search"
+            placeholder="Search destination..."
+            name="searchText"
+          >
+
+          <button
+            class="btn btn-danger px-4"
+            type="submit"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+        </div>
       </form>
 
-      <ul class="navbar-nav ms-auto">
-        <% if(!currUser) {%>
-          <li class="nav-item">
-            <a class="nav-link" href="/signup">Signup</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <% } %>
+      <!-- Right Side -->
 
-             <% if(currUser) {%>
+      <ul class="navbar-nav align-items-lg-center">
 
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
-            </li>
-             <% } %>
+        <% if(!currUser){ %>
+
+          <li class="nav-item">
+
+            <a class="nav-link fw-semibold" href="/login">
+
+              Login
+
+            </a>
+
+          </li>
+
+          <li class="nav-item ms-lg-2">
+
+            <a
+              class="btn btn-danger rounded-pill px-4"
+              href="/signup"
+            >
+
+              Sign Up
+
+            </a>
+
+          </li>
+
+        <% } else { %>
+
+          <li class="nav-item dropdown">
+
+            <a
+              class="nav-link dropdown-toggle fw-semibold"
+              href="#"
+              data-bs-toggle="dropdown"
+            >
+
+              <i class="fa-solid fa-circle-user me-2"></i>
+
+              <%= currUser.username %>
+
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+
+              <li>
+
+                <a class="dropdown-item" href="/new">
+
+                  <i class="fa-solid fa-plus me-2"></i>
+
+                  Add Listing
+
+                </a>
+
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+
+              <li>
+
+                <a class="dropdown-item text-danger" href="/logout">
+
+                  <i class="fa-solid fa-right-from-bracket me-2"></i>
+
+                  Logout
+
+                </a>
+
+              </li>
+
+            </ul>
+
+          </li>
+
+        <% } %>
+
       </ul>
+
     </div>
+
   </div>
 </nav>
