@@ -8,18 +8,21 @@ const reviewSchema = new mongoose.Schema(
       min: 1,
       max: 5,
     },
+
     comment: {
       type: String,
       required: true,
       trim: true,
     },
+
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
-    //this creates a created at and updated at values by current time and date
     timestamps: true,
   },
 );
 
-const reviewModel = mongoose.model("reviewModel", reviewSchema);
-
-module.exports = reviewModel;
+module.exports = mongoose.model("reviewModel", reviewSchema);

@@ -24,76 +24,222 @@
 
       <p class="hotel-country">🌍 <%= hotel.country %>
       </p>
-       
+      
+
+
+
+    <% if (
+  currUser &&
+  hotel.author &&
+  hotel.author._id.toString() === currUser._id.toString()
+) { %>
       <div class="anchorseditdelete mt-4">
-        <a href="/view/<%= hotel._id %>/edit">Edit</a>
+        <a href="/view/<%= hotel._id %>/edit" class="btn btn-dark">Edit</a>
         <form method="post" action="/view/<%= hotel._id %>/delete?_method=DELETE">
-          <button>Delete</button>
+          <button class="btn btn-danger">Delete</button>
         </form>
       </div>
+      <% } %>
     
     </div>
   </div>
   <hr />
 
   <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        <div class="card shadow-lg border-0 rounded-4">
-          <div class="card-body p-4">
-            <h3 class="text-center mb-4">Leave a Review</h3>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-7">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-4">
 
-            <form action="/listings/<%= hotel._id %>/reviews" method="post">
-              <!-- Rating -->
-              <div class="mb-4">
-                <label for="rating" class="form-label fw-bold"> Rating </label>
-                <input type="range" class="form-range" min="1" max="5" step="1" id="rating" name="review[rating]" required />
-                <div class="d-flex justify-content-between">
-                  <small>1 ⭐</small>
-                  <small>5 ⭐</small>
-                </div>
-              </div>
+          <h3 class="text-center mb-4">
+            Leave a Review
+          </h3>
 
-              <!-- Description -->
-              <div class="mb-4">
-                <label for="comment" class="form-label fw-bold">
-                  Description
+          <form
+            action="/listings/<%= hotel._id %>/reviews"
+            method="POST"
+          >
+
+            <!-- Rating -->
+            <div class="mb-4">
+
+              <label class="form-label fw-bold mb-2">
+                Rating
+              </label>
+
+              <fieldset class="starability-slot">
+
+                <input
+                  type="radio"
+                  id="no-rate"
+                  class="input-no-rate"
+                  name="review[rating]"
+                  value="1"
+                  checked
+                  aria-label="No rating."
+                />
+
+                <input
+                  type="radio"
+                  id="rate1"
+                  name="review[rating]"
+                  value="1"
+                />
+                <label for="rate1" title="Terrible">
+                  1 star
                 </label>
-                <textarea id="comment" class="form-control" rows="4" placeholder="Share your experience..."
-                  name="review[comment]" required></textarea>
-              </div>
 
-              <!-- Submit Button -->
-              <div class="text-center">
-                <button class="btn btn-dark px-4 rounded-pill">
-                  Submit Review
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+                <input
+                  type="radio"
+                  id="rate2"
+                  name="review[rating]"
+                  value="2"
+                />
+                <label for="rate2" title="Bad">
+                  2 stars
+                </label>
 
+                <input
+                  type="radio"
+                  id="rate3"
+                  name="review[rating]"
+                  value="3"
+                />
+                <label for="rate3" title="Average">
+                  3 stars
+                </label>
 
-  <div class="row">
+                <input
+                  type="radio"
+                  id="rate4"
+                  name="review[rating]"
+                  value="4"
+                />
+                <label for="rate4" title="Very Good">
+                  4 stars
+                </label>
 
-    <% for(review of hotel.reviews){ %>
-      <div class="card col-5 ms-3 mb-3">
-        <div class="card-body">
-          <h1 class="card-text">
-            <%= review.rating %>
-          </h1>
-          <p class="card-text">
-            <%= review.comment %>
-          </p>
+                <input
+                  type="radio"
+                  id="rate5"
+                  name="review[rating]"
+                  value="5"
+                />
+                <label for="rate5" title="Amazing">
+                  5 stars
+                </label>
 
-          <form class="mb-3" method="post" action="/listings/<%= hotel._id %>/reviews/<%= review._id %>?_method=DELETE">
-            <button>delete</button>
+              </fieldset>
+
+            </div>
+
+            <!-- Comment -->
+            <div class="mb-4">
+
+              <label
+                for="comment"
+                class="form-label fw-bold"
+              >
+                Review
+              </label>
+
+              <textarea
+                id="comment"
+                class="form-control"
+                rows="4"
+                placeholder="Share your experience..."
+                name="review[comment]"
+                required
+              ></textarea>
+
+            </div>
+
+            <button
+              class="btn btn-dark w-100 rounded-pill"
+            >
+              Submit Review
+            </button>
+
           </form>
 
         </div>
       </div>
-      <% } %>
+    </div>
   </div>
+</div>
+
+<hr class="my-5">
+
+<h3 class="mb-4">
+  Guest Reviews
+</h3>
+
+<div class="row">
+
+  <% hotel.reviews.forEach((review)=>{ %>
+
+    <div class="col-md-6 mb-4">
+
+      <div class="card shadow-sm h-100 border-0 rounded-4">
+
+        <div class="card-body">
+
+          <h5 class="card-title">
+
+            <% if(review.author){ %>
+
+              <i class="fa-solid fa-user"></i>
+
+              @<%= review.author.username %>
+
+            <% } %>
+
+          </h5>
+
+          <span
+            class="starability-result"
+            data-rating="<%= review.rating %>"
+          >
+            Rated:
+            <%= review.rating %>
+          </span>
+
+          <p class="card-text mt-3">
+
+            <%= review.comment %>
+
+          </p>
+
+          <small class="text-muted">
+
+            <%= review.createdAt.toDateString() %>
+
+          </small>
+
+          <% if(currUser && review.author && review.author._id.equals(currUser._id)){ %>
+
+            <form
+              class="mt-3"
+              method="POST"
+              action="/listings/<%= hotel._id %>/reviews/<%= review._id %>?_method=DELETE"
+            >
+
+              <button
+                class="btn btn-outline-danger btn-sm"
+              >
+                Delete Review
+              </button>
+
+            </form>
+
+          <% } %>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  <% }) %>
+
+</div>

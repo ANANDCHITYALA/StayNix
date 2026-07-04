@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const reviewModel = require("./reviewModel");
+
 const { ref } = require("joi");
 
 const hotelSchema = new mongoose.Schema({
@@ -42,8 +43,17 @@ const hotelSchema = new mongoose.Schema({
   ],
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "usermodel",
+    ref: "User",
   },
+});
+
+// This automatically deletes all reviews when a listing is deleted.
+hotelSchema.post("findOneAndDelete", async (listing) => {
+  if (listing) {
+    await reviewModel.deleteMany({
+      _id: { $in: listing.reviews },
+    });
+  }
 });
 
 const HotelModel = mongoose.model("HotelModel", hotelSchema);

@@ -6,6 +6,7 @@
       method="post"
       action="/listings/<%= hotel._id %>?_method=PUT"
       class="needs-validation"
+      enctype="multipart/form-data"
       novalidate
     >
       <div>
@@ -28,30 +29,10 @@
         <div class="invalid-feedback">Please add description.</div>
       </div>
 
-      <div class="row">
-        <div class="col-md-8">
-          <label for="image[filename]" class="form-label">image name</label>
-          <input
-            type="text"
-            name="listings[image][filename]"
-            id="image[filename]"
-            class="form-control"
-            value="<%= hotel.image.name %>"
-          />
-          <div class="invalid-feedback">Please choose a username.</div>
-        </div>
+      <div class="mb-3">
+        <label class="form-label"> Replace Image </label>
 
-        <div class="col-md-4">
-          <label for="image.url" class="form-label">image url</label>
-          <input
-            type="text"
-            name="listings[image][url]"
-            id=""
-            class="form-control"
-            value="<%= hotel.image.url %>"
-          />
-          <div class="invalid-feedback">Please choose a username.</div>
-        </div>
+        <input type="file" name="image" class="form-control" />
       </div>
 
       <div>
