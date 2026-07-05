@@ -55,15 +55,14 @@ The project follows the MVC Architecture and demonstrates CRUD operations, authe
 
 </td>
 
-</tr>
-</table>
 
-<br>
 
-<table>
-<tr>
 
-<td valign="top" width="20%">
+
+
+
+
+<td valign="top" width="33%">
 
 ### 🔐 Authentication
 
@@ -73,7 +72,7 @@ The project follows the MVC Architecture and demonstrates CRUD operations, authe
 
 </td>
 
-<td valign="top" width="20%">
+<td valign="top" width="33%">
 
 ### ☁️ Image Upload
 
@@ -82,7 +81,7 @@ The project follows the MVC Architecture and demonstrates CRUD operations, authe
 
 </td>
 
-<td valign="top" width="20%">
+<td valign="top" width="33%">
 
 ### ✅ Validation
 
@@ -91,7 +90,7 @@ The project follows the MVC Architecture and demonstrates CRUD operations, authe
 
 </td>
 
-<td valign="top" width="20%">
+<td valign="top" width="33%">
 
 ### 🚀 Deployment
 
