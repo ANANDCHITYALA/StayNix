@@ -1,28 +1,33 @@
 <div align="center">
+
 # 🏡 StayNix
+
+### Discover • Stay • Experience
+
+A full-stack property rental platform designed and developed from scratch.
+
+🌐 **Live Demo:** https://staynix-1p32.onrender.com/
+
 </div>
-
-StayNix is a full-stack property rental platform designed and developed from scratch where users can discover properties, publish listings, upload images, write reviews, and securely manage their own content.
-
----
-
-# 🎬 Live Demo
-
-live : https://staynix-1p32.onrender.com/
 
 ---
 
 # 1. Project Overview
 
-StayNix is a full-stack web application that allows users to list rental properties, browse available accommodations, leave reviews, and manage their own listings through a secure authentication and authorization system.
+StayNix is a full-stack web application that allows users to discover properties, publish listings, upload images, write reviews, and securely manage their own content.
 
-The project follows the MVC Architecture and demonstrates CRUD operations, user authentication, role-based authorization, image uploads, server-side validation, and responsive UI design.
+The project follows the MVC Architecture and demonstrates CRUD operations, authentication, authorization, image uploads, server-side validation, and responsive UI design.
 
 ---
 
 # 2. Tech Stack
 
-### Frontend
+<table>
+<tr>
+
+<td valign="top" width="33%">
+
+### 🎨 Frontend
 
 - HTML5
 - CSS3
@@ -30,138 +35,232 @@ The project follows the MVC Architecture and demonstrates CRUD operations, user 
 - JavaScript
 - EJS
 
-### Backend
+</td>
+
+<td valign="top" width="33%">
+
+### ⚙️ Backend
 
 - Node.js
 - Express.js
 
-### Database
+</td>
+
+<td valign="top" width="33%">
+
+### 🗄 Database
 
 - MongoDB Atlas
 - Mongoose
 
-### Authentication
+</td>
+
+</tr>
+</table>
+
+<br>
+
+<table>
+<tr>
+
+<td valign="top" width="20%">
+
+### 🔐 Authentication
 
 - Passport.js
+- Passport Local
 - Express Session
-- Passport Local Mongoose
 
-### Image Upload
+</td>
+
+<td valign="top" width="20%">
+
+### ☁️ Image Upload
 
 - Multer
 - Cloudinary
 
-### Validation
+</td>
+
+<td valign="top" width="20%">
+
+### ✅ Validation
 
 - Joi
+- Custom Middleware
 
-### Deployment
+</td>
+
+<td valign="top" width="20%">
+
+### 🚀 Deployment
 
 - Render
+
+</td>
+
+</tr>
+</table>
 
 ---
 
 # 3. Functionality
 
-### Guest
+<table>
 
-- Browse all available listings
+<tr>
+
+<td width="50%" valign="top">
+
+## 👤 Guest
+
+- Browse all listings
 - View property details
-- Search properties
-- Register a new account
+- Search listings
+- Register account
 - Login securely
 
-### Registered User
+</td>
 
-- Create new property listings
-- Upload property images
+<td width="50%" valign="top">
+
+## 👨‍💼 Registered User
+
+- Create listings
+- Upload images
 - Edit own listings
 - Delete own listings
 - Add reviews
 - Delete own reviews
-- Logout securely
+- Logout
+
+</td>
+
+</tr>
+
+</table>
 
 ---
 
 # 4. Authentication
 
-Users can securely access the application using:
+<table>
+
+<tr>
+
+<td width="50%" valign="top">
+
+### 🔑 Login
 
 - Username
 - Password
 
-Authentication is implemented using:
+</td>
+
+<td width="50%" valign="top">
+
+### 🛡 Security
 
 - Passport.js
-- Passport Local Strategy
-- Express Sessions
-- Password hashing using Passport Local Mongoose
+- Express Session
+- Password Hashing
+- Passport Local Mongoose
+
+</td>
+
+</tr>
+
+</table>
 
 ---
 
 # 5. Authorization
 
-The application enforces ownership-based authorization.
+<table>
 
-### Listing Owner
+<tr>
 
-Only the creator of a listing can:
+<td width="33%" valign="top">
 
-- Edit the listing
-- Delete the listing
+### 🏠 Listing Owner
 
-### Review Owner
+- Edit own listings
+- Delete own listings
 
-Only the creator of a review can:
+</td>
 
-- Delete the review
+<td width="33%" valign="top">
 
-### Guest User
+### ⭐ Review Owner
 
-Guest users can:
+- Delete own reviews
 
-- Browse listings
-- View listing details
+</td>
 
-Guest users cannot:
+<td width="33%" valign="top">
 
-- Create listings
-- Add reviews
-- Edit or delete any content
+### 👀 Guest User
+
+- View listings
+- Search listings
+- Cannot modify content
+
+</td>
+
+</tr>
+
+</table>
 
 ---
 
-# 6. Property Management Features
+# 6. Property Management
 
-### Listings
+<table>
 
-- View all property listings
-- View detailed listing page
-- Create new listing
-- Edit existing listing
-- Delete listing
-- Upload property images
-- Search listings by title
+<tr>
 
-### Reviews
+<td width="33%" valign="top">
 
-- Add reviews
-- Delete own reviews
-- Star rating system
-- Average rating calculation
+### 🏡 Listings
 
-### Media
+- View Listings
+- Create Listing
+- Edit Listing
+- Delete Listing
+- Search Listings
 
-- Upload images using Multer
-- Store images securely on Cloudinary
+</td>
+
+<td width="33%" valign="top">
+
+### ⭐ Reviews
+
+- Add Review
+- Delete Review
+- Average Rating
+- Starability Rating
+
+</td>
+
+<td width="33%" valign="top">
+
+### 📷 Images
+
+- Upload Images
+- Cloudinary Storage
+- Multer Integration
+
+</td>
+
+</tr>
+
+</table>
 
 ---
 
 # 7. Project Structure
 
-The application follows the MVC Architecture.
-
-```
+```text
 StayNix
 │
 ├── config
@@ -182,40 +281,32 @@ StayNix
 
 - MVC Architecture
 - RESTful Routing
-- Authentication using Passport.js
-- Authorization Middleware
-- Cloudinary Image Uploads
-- Multer File Handling
-- Server-side Validation using Joi
-- Flash Messages
-- Search Functionality
+- Authentication & Authorization
+- Cloudinary Image Upload
 - Responsive Design
 - Hero Carousel
 - Property Reviews & Ratings
+- Search Functionality
+- Flash Messages
+- Secure Session Management
 
 ---
 
 # 9. Installation
 
-Clone the repository
-
 ```bash
 git clone https://github.com/YOUR_USERNAME/StayNix.git
 ```
-
-Move into project
 
 ```bash
 cd StayNix
 ```
 
-Install dependencies
-
 ```bash
 npm install
 ```
 
-Create a `.env` file
+Create a `.env`
 
 ```env
 Mongo_URL=
@@ -229,29 +320,17 @@ CLOUD_API_SECRET=
 SECRET=
 ```
 
-Start the server
+Run
 
 ```bash
 npm start
-```
-
-or
-
-```bash
-nodemon app.js
-```
-
-Visit
-
-```
-http://localhost:3000
 ```
 
 ---
 
 # 10. Deployment
 
-### Live Application
+🌐 **Live Website**
 
 https://staynix-1p32.onrender.com/
 
@@ -259,23 +338,19 @@ https://staynix-1p32.onrender.com/
 
 # 11. Future Enhancements
 
-- Booking System
-- Wishlist
-- Google Maps Integration
-- Payment Gateway
-- Categories Filter
-- User Dashboard
-- Notifications
-- Dark Mode
+- ❤️ Wishlist
+- 📅 Booking System
+- 📍 Google Maps
+- 💳 Online Payments
+- 🔔 Notifications
+- 🌙 Dark Mode
 
 ---
 
 # 12. What I Learned
 
-During the development of StayNix, I gained hands-on experience with:
-
 - MVC Architecture
-- RESTful APIs
+- REST APIs
 - Authentication & Authorization
 - Express Middleware
 - MongoDB Relationships
@@ -287,12 +362,12 @@ During the development of StayNix, I gained hands-on experience with:
 
 ---
 
+<div align="center">
+
 # 👨‍💻 Author
 
 **Chityala Anand**
 
-<div align="center">
-
-### ⭐ If you found this project interesting, consider giving it a Star ⭐
+⭐ If you found this project interesting, consider giving it a Star!
 
 </div>
