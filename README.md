@@ -22,88 +22,24 @@ The project follows the MVC Architecture and demonstrates CRUD operations, authe
 
 # 2. Tech Stack
 
-<table>
-<tr>
+<div align="center">
 
-<td valign="top" width="33%">
+### 🎨 Frontend &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⚙️ Backend &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🗄 Database
 
-### 🎨 Frontend
+HTML5 • CSS3 • Bootstrap 5 • JavaScript • EJS &nbsp;&nbsp; | &nbsp;&nbsp;
+Node.js • Express.js &nbsp;&nbsp; | &nbsp;&nbsp;
+MongoDB Atlas • Mongoose
 
-- HTML5
-- CSS3
-- Bootstrap 5
-- JavaScript
-- EJS
+<br><br>
 
-</td>
+### 🔐 Authentication &nbsp;&nbsp;&nbsp;&nbsp; ☁️ Image Upload &nbsp;&nbsp;&nbsp;&nbsp; ✅ Validation &nbsp;&nbsp;&nbsp;&nbsp; 🚀 Deployment
 
-<td valign="top" width="33%">
+Passport.js • Passport Local • Express Session &nbsp;&nbsp; | &nbsp;&nbsp;
+Cloudinary • Multer &nbsp;&nbsp; | &nbsp;&nbsp;
+Joi &nbsp;&nbsp; | &nbsp;&nbsp;
+Render
 
-### ⚙️ Backend
-
-- Node.js
-- Express.js
-
-</td>
-
-<td valign="top" width="33%">
-
-### 🗄 Database
-
-- MongoDB Atlas
-- Mongoose
-
-</td>
-
-</tr>
-</table>
-
-<br>
-
-<table>
-<tr>
-
-<td valign="top" width="20%">
-
-### 🔐 Authentication
-
-- Passport.js
-- Passport Local
-- Express Session
-
-</td>
-
-<td valign="top" width="20%">
-
-### ☁️ Image Upload
-
-- Multer
-- Cloudinary
-
-</td>
-
-<td valign="top" width="20%">
-
-### ✅ Validation
-
-- Joi
-- Custom Middleware
-
-</td>
-
-<td valign="top" width="20%">
-
-### 🚀 Deployment
-
-- Render
-
-</td>
-
-</tr>
-</table>
-
----
-
+</div>
 # 3. Functionality
 
 <table>
