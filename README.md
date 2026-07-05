@@ -1,4 +1,6 @@
+<div align="center">
 # 🏡 StayNix
+</div>
 
 StayNix is a full-stack property rental platform designed and developed from scratch where users can discover properties, publish listings, upload images, write reviews, and securely manage their own content.
 
@@ -6,9 +8,7 @@ StayNix is a full-stack property rental platform designed and developed from scr
 
 # 🎬 Live Demo
 
-### 🌐 Website
-
-https://staynix-1p32.onrender.com/
+live : https://staynix-1p32.onrender.com/
 
 ---
 
@@ -291,4 +291,8 @@ During the development of StayNix, I gained hands-on experience with:
 
 **Chityala Anand**
 
-If you found this project helpful or interesting, consider giving it a ⭐ on GitHub.
+<div align="center">
+
+### ⭐ If you found this project interesting, consider giving it a Star ⭐
+
+</div>
