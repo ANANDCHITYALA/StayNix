@@ -381,6 +381,71 @@ REVIEWS
   margin-bottom: 15px;
 }
 
+/* ===========================
+   WELCOME MODAL
+=========================== */
+
+.welcome-dialog {
+  max-width: 620px;
+}
+
+.welcome-modal {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.welcome-modal .modal-header {
+  padding: 14px 22px;
+}
+
+.welcome-modal .modal-body {
+  padding: 14px 22px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.welcome-modal .modal-footer {
+  padding: 12px 22px;
+}
+
+.welcome-modal h3 {
+  font-size: 1.55rem;
+}
+
+.welcome-modal h4 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.welcome-modal h5 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.welcome-modal p {
+  margin-bottom: 10px;
+}
+
+.welcome-modal ol {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.welcome-modal li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.welcome-modal hr {
+  margin: 12px 0;
+}
+
+.welcome-modal .btn {
+  padding: 7px 22px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
 /* ==================================
 AUTHENTICATION
 ================================== */
