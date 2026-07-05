@@ -1,161 +1,212 @@
+<div align="center">
+
 # 🏡 StayNix
 
-StayNix is a full-stack property rental and accommodation platform that I designed and developed from scratch using modern web technologies.
+### Discover • Stay • Experience
 
-The application allows users to discover, publish, manage, and review properties through a secure and responsive web interface. It follows the MVC architecture and implements authentication, authorization, image uploads, server-side validation, and responsive design.
+A modern full-stack property rental platform designed and developed from scratch using Node.js, Express.js, MongoDB, and the MVC Architecture.
+
+🌐 **Live Demo:** https://staynix-1p32.onrender.com/
+
+![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/StayNix?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/YOUR_USERNAME/StayNix?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/YOUR_USERNAME/StayNix?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/StayNix?style=for-the-badge)
+
+</div>
 
 ---
 
-## 🚀 Live Demo
+# 📖 About
 
-https://staynix-1p32.onrender.com/
+StayNix is a full-stack accommodation rental platform where users can explore properties, publish listings, upload property images, write reviews, and securely manage their own content.
+
+The application was designed and developed from scratch as a complete end-to-end project following the MVC architecture and modern web development practices.
 
 ---
 
 # ✨ Features
 
-## 🔐 Authentication
+### 👤 Authentication
 
-- User Registration
+- Secure User Registration
 - User Login
-- Secure Password Hashing
-- Session Management using Passport.js
+- Password Hashing
+- Session Authentication
 
----
+### 🔒 Authorization
 
-## 👤 Authorization
+- Only owners can edit listings
+- Only owners can delete listings
+- Review ownership protection
 
-- Only authenticated users can create listings
-- Listing owners can edit and delete only their own listings
-- Review owners can delete only their own reviews
+### 🏠 Listings
 
----
-
-## 🏠 Property Listings
-
-- Create Listings
-- Edit Listings
-- Delete Listings
+- Create Listing
+- Edit Listing
+- Delete Listing
+- View Property Details
 - Search Listings
 - Image Uploads
-- Responsive Listing Pages
 
----
-
-## ⭐ Reviews & Ratings
+### ⭐ Reviews
 
 - Add Reviews
 - Delete Reviews
-- Star Rating System
-- Average Rating Display
+- Average Ratings
+- Starability Rating System
 
----
+### ☁️ Cloud Storage
 
-## 📷 Media Upload
-
-- Multer
 - Cloudinary Integration
+- Multer File Upload
 
----
-
-## 🛡 Validation
+### 🛡 Validation
 
 - Joi Validation
 - Custom Error Handling
-- Server-side Validation
+- Flash Messages
 
 ---
 
-## 🧩 Project Architecture
+# 🖼 Screenshots
 
-- MVC Architecture
-- RESTful Routing
-- Express Middleware
-- Modular Folder Structure
+## Home Page
+
+> Add a screenshot here
+
+```
+screenshots/home.png
+```
+
+---
+
+## Property Details
+
+> Add screenshot
+
+```
+screenshots/details.png
+```
+
+---
+
+## Create Listing
+
+> Add screenshot
+
+```
+screenshots/create.png
+```
+
+---
+
+## Login
+
+> Add screenshot
+
+```
+screenshots/login.png
+```
 
 ---
 
 # 🛠 Tech Stack
 
-### Frontend
+## Frontend
 
-- HTML
-- CSS
+- HTML5
+- CSS3
 - Bootstrap 5
 - JavaScript
 - EJS
 
-### Backend
+## Backend
 
 - Node.js
 - Express.js
 
-### Database
+## Database
 
 - MongoDB Atlas
 - Mongoose
 
-### Authentication
+## Authentication
 
 - Passport.js
-- Passport Local
 - Express Session
 
-### Cloud Storage
+## Image Upload
 
-- Cloudinary
 - Multer
+- Cloudinary
 
-### Validation
+## Validation
 
 - Joi
 
-### Deployment
+## Deployment
 
 - Render
 
 ---
 
-# 📂 Folder Structure
+# 📂 MVC Architecture
 
 ```
 StayNix
 │
 ├── config
+│
 ├── controllers
+│
 ├── middlewares
+│
 ├── models
+│
 ├── public
+│   ├── css
+│   ├── js
+│   ├── uploads
+│
 ├── routes
+│
 ├── utils
+│
 ├── views
+│
 ├── app.js
+│
 └── package.json
 ```
 
 ---
 
-# 💻 Installation
+# 🚀 Getting Started
+
+Clone
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/StayNix.git
 ```
 
-```bash
-cd StayNix
-```
+Install
 
 ```bash
 npm install
 ```
 
-Create a `.env`
+Create
 
-```
+```env
 Mongo_URL=
+
 CLOUD_NAME=
+
 CLOUD_API_KEY=
+
 CLOUD_API_SECRET=
+
 SECRET=
 ```
 
@@ -165,26 +216,54 @@ Run
 npm start
 ```
 
-or
+Visit
 
-```bash
-nodemon app.js
+```
+http://localhost:3000
 ```
 
 ---
 
-# 🚀 Future Improvements
+# 💡 Future Enhancements
 
-- Booking System
-- Wishlist
-- Google Maps Integration
-- Payment Gateway
-- Categories
-- Notifications
-- User Dashboard
+- ❤️ Wishlist
+- 📍 Google Maps
+- 💳 Online Payments
+- 📅 Booking Calendar
+- 🔔 Notifications
+- 🏷 Categories
+- 🌙 Dark Mode
 
 ---
 
-# 👨‍💻 Developed By
+# 📚 What I Learned
 
-**Chityala Anand**
+- MVC Architecture
+- REST APIs
+- Authentication
+- Authorization
+- Cloudinary Integration
+- Multer
+- Passport.js
+- MongoDB Relationships
+- Session Management
+- Responsive UI Design
+- Deployment on Render
+
+---
+
+# 👨‍💻 Author
+
+### Chityala Anand
+
+💼 LinkedIn
+
+🐙 GitHub
+
+---
+
+<div align="center">
+
+### ⭐ If you found this project interesting, consider giving it a Star ⭐
+
+</div>
