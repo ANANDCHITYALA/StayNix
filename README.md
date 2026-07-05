@@ -6,7 +6,7 @@
 
 A full-stack property rental platform designed and developed from scratch.
 
-🌐 **Live Demo:** https://staynix-1p32.onrender.com/
+🌐 **Live Demo : ** https://staynix-1p32.onrender.com/
 
 </div>
 
@@ -27,7 +27,7 @@ The project follows the MVC Architecture and demonstrates CRUD operations, authe
 
 <td valign="top" width="33%">
 
-### 🎨 Frontend
+### Frontend
 
 - HTML5
 - CSS3
@@ -64,7 +64,7 @@ The project follows the MVC Architecture and demonstrates CRUD operations, authe
 
 <td valign="top" width="33%">
 
-### 🔐 Authentication
+###  Authentication
 
 - Passport.js
 - Passport Local
@@ -83,7 +83,7 @@ The project follows the MVC Architecture and demonstrates CRUD operations, authe
 
 <td valign="top" width="33%">
 
-### ✅ Validation
+### Validation
 
 - Joi
 - Custom Middleware
@@ -293,7 +293,7 @@ StayNix
 # 9. Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/StayNix.git
+git clone https://github.com/ANANDCHITYALA/StayNix.git
 ```
 
 ```bash
@@ -328,9 +328,7 @@ npm start
 
 # 10. Deployment
 
-🌐 **Live Website**
-
-https://staynix-1p32.onrender.com/
+🌐 Live URL : https://staynix-1p32.onrender.com/
 
 ---
 
