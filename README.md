@@ -22,24 +22,87 @@ The project follows the MVC Architecture and demonstrates CRUD operations, authe
 
 # 2. Tech Stack
 
-<div align="center">
+<table>
+<tr>
 
-### 🎨 Frontend &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⚙️ Backend &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🗄 Database
+<td valign="top" width="33%">
 
-HTML5 • CSS3 • Bootstrap 5 • JavaScript • EJS &nbsp;&nbsp; | &nbsp;&nbsp;
-Node.js • Express.js &nbsp;&nbsp; | &nbsp;&nbsp;
-MongoDB Atlas • Mongoose
+### 🎨 Frontend
 
-<br><br>
+- HTML5
+- CSS3
+- Bootstrap 5
+- JavaScript
+- EJS
 
-### 🔐 Authentication &nbsp;&nbsp;&nbsp;&nbsp; ☁️ Image Upload &nbsp;&nbsp;&nbsp;&nbsp; ✅ Validation &nbsp;&nbsp;&nbsp;&nbsp; 🚀 Deployment
+</td>
 
-Passport.js • Passport Local • Express Session &nbsp;&nbsp; | &nbsp;&nbsp;
-Cloudinary • Multer &nbsp;&nbsp; | &nbsp;&nbsp;
-Joi &nbsp;&nbsp; | &nbsp;&nbsp;
-Render
+<td valign="top" width="33%">
 
-</div>
+### ⚙️ Backend
+
+- Node.js
+- Express.js
+
+</td>
+
+<td valign="top" width="33%">
+
+### 🗄 Database
+
+- MongoDB Atlas
+- Mongoose
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+<table>
+<tr>
+
+<td valign="top" width="20%">
+
+### 🔐 Authentication
+
+- Passport.js
+- Passport Local
+- Express Session
+
+</td>
+
+<td valign="top" width="20%">
+
+### ☁️ Image Upload
+
+- Multer
+- Cloudinary
+
+</td>
+
+<td valign="top" width="20%">
+
+### ✅ Validation
+
+- Joi
+- Custom Middleware
+
+</td>
+
+<td valign="top" width="20%">
+
+### 🚀 Deployment
+
+- Render
+
+</td>
+
+</tr>
+</table>
+
+---
 # 3. Functionality
 
 <table>
