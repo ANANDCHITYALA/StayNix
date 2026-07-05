@@ -6,7 +6,7 @@
 
 A full-stack property rental platform designed and developed from scratch.
 
-🌐 **Live Demo : ** https://staynix-1p32.onrender.com/
+🌐 **Live Demo :**  https://staynix-1p32.onrender.com/
 
 </div>
 
